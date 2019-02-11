@@ -1,0 +1,90 @@
+/*{
+	color: white;
+	text-align: left;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 3px 3px 3px grey;
+  background: rgb(19, 255, 19) url("/assets/leaf2.png") no-repeat right top; 
+  
+}*/
+
+.clearfix {
+	
+	background-image: linear-gradient(rgb(6,255,6), rgb(11,210,11));
+ 	border-radius: 40px;
+  	box-shadow: 3px 3px 3px grey;
+  	padding: 10px 50px 25px 50px;
+ 	overflow: auto;
+ 	width: 950px
+}
+
+h1{
+	color: white;
+	float: left;
+	font-size: 45px;
+	font-family: "Times New Roman", Times, serif;
+    letter-spacing: 10px;
+    font-weight: bolder;
+}
+
+img{
+	float: right;
+	
+}
+
+input[type=text]:focus {
+  border: 3px solid #555;
+}
+input[type=text], select {
+font-size: 15px;
+  padding: 10px 15px;
+  margin: 5px 0;
+width: 500px;
+  border-radius: 4px;
+}
+input[type=email]:focus {
+  border: 3px solid #555;
+}
+input[type=email], select {
+font-size: 15px;
+  padding: 10px 15px;
+  margin: 5px 0;
+width: 500px;
+  border-radius: 4px;
+}
+label{
+
+    font-size: 15px;
+    padding: 10px 15px;
+  	margin: 5px 0;
+    float: left;
+    font-weight: bolder;
+   
+}
+button, select {
+	
+        left: 18%;
+  font-size: 15px;
+  padding: 10px 15px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  color:LightSeaGreen ;
+  font-weight: bolder;
+}
+button:hover {
+  background-color: GhostWhite  ;
+  font-weight: bolder;
+}
+
+input.ng-valid {
+    background-color:lightgreen;
+}
+
+
+
+table, th, td {
+  /*border: 1px solid black;
+}
+

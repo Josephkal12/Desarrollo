@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+        <title>Green Leaves</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body ng-controller="controlador">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+            <center>
+            <div class="clearfix"><h1>Green Leaves</h1>
+     <img src="leaf2.png">
+ </div>
+
+<form name="formF" novalidate ng-hide="formVisibility">
+       
+    <table>
+        <tr>
+          <th>  <label>Nombre:</label></th>
+    <td style="width: 60%;">
+        <input type="text" name="nombre" class="nombreV" id="nombre"ng-model="formularioNew.nombre"required ng-minlength="2"/>
+        <div ng-If="formF.nombre.$touched" >
+<span ng-show="formF.nombre.$invalid">
+<style>.nombreV{background-color:pink;}
+</style>El nombre es requerido.</span>
+
+</div>
+<div ng-messages="formF.nombre.$error">
+    <div ng-message="minlength"> minimo 3 caracteres</div>
+  </div>
+
+
+</td>
+</tr>
+    <br/>
+    <tr>
+    <th><label>E-mail:</label></th>
+    <td><input type="email" name="email" class="emailV" ng-model="formularioNew.email "required/>
+        <div ng-If="formF.email.$touched" >
+<span ng-show="formF.email.$invalid">
+<style>.emailV{background-color:pink;}
+</style>El email es requerido ejemplo: someone@company.com</span>
+
+</div>
+
+</tr>
+    <br />
+    <tr>
+    <th><label>Teléfono:</label></th>
+    <td><input type="text" name="telefono" class="telefonoV" ng-model="formularioNew.telefono "required ng-minlength="6"/>
+        <div ng-If="formF.telefono.$touched" >
+<span ng-show="formF.telefono.$invalid">
+<style>.telefonoV{background-color:pink;}
+</style>El telefono es requerido</span>
+
+</div>
+<div ng-messages="formF.telefono.$error">
+    <div ng-message="minlength" ngIf="telefonoMinLenght"> minimo 6 caracteres</div>
+  </div>
+</tr>
+    <br />
+    <tr>
+    <th><label>Fecha:</label></th>
+    <td>
+
+        <div class="datepicker">
+                 <md-datepicker ng-model="formularioNew.fecha" md-placeholder="Seleccionar Fecha" md-is-open="formularioNew.isOpen" required></md-datepicker>
+      {{formularioNew.fecha | date:"dd/MM/yyyy"}}
+      
+    </div>
+    <div ng-messages="formF.fecha.$error">
+    <div ng-message="requiered" > minimo 3 caracteres</div>
+  </div>
+      </td>
+   </tr>
+    <br />
+    <tr>
+    <th><label>Ciudad y Estado:</label></th>
+    <td><input type="text" name="ciudad" class="ciudadV" ng-model="formularioNew.ciudad "required ng-minlength="3"/>
+        <div ng-If="formF.ciudad.$touched" >
+<span ng-show="formF.ciudad.$invalid">
+<style>.ciudadV{background-color:pink;}
+</style>El nombre de la ciudad es requerido</span>
+
+</div>
+<div ng-messages="formF.ciudad.$error">
+    <div ng-message="minlength" ngIf="ciudadMinLenght"> minimo 3 caracteres</div>
+  </div>
+  </tr>
+    <br />
+    <tr >
+
+        <td colspan="2" style="text-align: right;">
+    <button  ng-click="Save(); ShowForm()" ng-hide="formVisibility">Enviar</button>
+   
+</td>
+</tr>
+    </table>
+    
+    </form>
+<br>
+<br>       
+            <div ng-repeat="view in formulario" ng-show="formVisibility">
+               <table>
+                <tr>
+                    <td>
+                <p>Estimado <b>{{view.nombre}}</b>,<br><br>
+
+                    Hemos recibido sus datos y nos pondrmos en contacto con usted a la brevedad prosble. Enviaremos <br> un correo con informacion a su cuenta: <a href=""><b>{{view.email}}</b></a>
+                    </p>
+                </td>
+                </tr>
+                    <tr>
+                        <td  style="text-align: right;">
+                   Atte.
+                    <div style="color: DarkGreen  "><b>Green Leaves</b></div>
+
+                    <em>{{view.ciudad}} a {{view.fecha}}</em>
+                </td> 
+            </tr>   
+                    </table>         
+
+                <!-- {{view.nombre}} - {{view.email}} - {{view.telefono}} -{{view.fecha}} - {{view.ciudad}}  -->
+            </div>
+            </center>
+            </div>
+        <div class="col-md-3">
+
+        </div>
+        </div>
+        </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/desarrollo.css">
+        <script type="text/javascript" src="js/desarrollo.js"></script>
+      
+    </body>
+</html>
+
