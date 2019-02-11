@@ -5,6 +5,29 @@
         <title>Green Leaves</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+        	 // var lugar = document.getElementById('lugar').value = json.display_name.toString();
+        
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    ciudad = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x = fetch('http://nominatim.openstreetmap.org/reverse?format=json&lon=' + position.coords.longitude + '&lat=' + position.coords.latitude).then(function(response) {
+return response.json();
+ }).then(function(json) {  
+ 	document.getElementById('ciudad').value=json.display_name;
+
+ 	//document.getElementById("ciudad").innerHTML =(json.display_name);
+ 	 } )
+
+}
+
+        </script>
     </head>
     <body ng-controller="controlador">
         <div class="container-fluid">
@@ -81,8 +104,11 @@
     <br />
     <tr>
     <th><label>Ciudad y Estado:</label></th>
-    <td><input type="text" name="ciudad" class="ciudadV" ng-model="formularioNew.ciudad "required ng-minlength="3"/>
-        <div ng-If="formF.ciudad.$touched" >
+    <td>
+    
+<input class="ciudadV" id="ciudad" name="ciudad" ng-value="ciudad" type="text" ng-model="formularioNew.ciudad" required />{{formularioNew.ciudad}}
+<div ng-If="formF.ciudad.$touched" >
+
 <span ng-show="formF.ciudad.$invalid">
 <style>.ciudadV{background-color:pink;}
 </style>El nombre de la ciudad es requerido</span>
@@ -91,12 +117,25 @@
 <div ng-messages="formF.ciudad.$error">
     <div ng-message="minlength" ngIf="ciudadMinLenght"> minimo 3 caracteres</div>
   </div>
+<button onclick="getLocation()">Obtener Ubicacion</button>
+
+
+    </td><!-- input type="text" name="ciudad" class="ciudadV" ng-model="formularioNew.ciudad "required ng-minlength="3"/>
+        <div ng-If="formF.ciudad.$touched" >
+<span ng-show="formF.ciudad.$invalid">
+<style>.ciudadV{background-color:pink;}
+</style>El nombre de la ciudad es requerido</span>
+
+</div>
+<div ng-messages="formF.ciudad.$error">
+    <div ng-message="minlength" ngIf="ciudadMinLenght"> minimo 3 caracteres</div>
+  </div> -->
   </tr>
     <br />
     <tr >
 
         <td colspan="2" style="text-align: right;">
-    <button  ng-click="Save(); ShowForm()" ng-hide="formVisibility">Enviar</button>
+    <button  ng-click="Save(); ShowForm()" ng-value="formularioNew.ciudad.$error" ng-hide="formVisibility">Enviar</button>
    
 </td>
 </tr>

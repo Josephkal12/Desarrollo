@@ -56,7 +56,7 @@ if(f.getDate() > f2.getDate()){
     email: $scope.formularioNew.email,
     telefono: $scope.formularioNew.telefono,
     fecha: f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear(),
-    ciudad: $scope.formularioNew.ciudad,
+    ciudad: $scope.formularioNew.ciudad
    });
   };
   $scope.ShowForm = function(){
